@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepali Number Converter - Vanilla JS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .radio-group {
+            margin-bottom: 15px;
+        }
+        .radio-group label {
+            margin-right: 15px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            font-size: 18px;
+            line-height: 1.5;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nepali Number Converter</h1>
+        
+        <div class="input-group">
+            <input type="text" id="numberInput" placeholder="Enter a number">
+            
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="language" value="np" checked> Nepali
+                </label>
+                <label>
+                    <input type="radio" name="language" value="en"> English
+                </label>
+            </div>
+
+            <button id="convertBtn">Convert</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script type="module">
+        // Import the conversion function
+        import { convertNumberToWordsInNepaliSystem } from '../dist/esm/index.js';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const convertBtn = document.getElementById('convertBtn');
+            const numberInput = document.getElementById('numberInput');
+            const resultDiv = document.getElementById('result');
+            const languageRadios = document.getElementsByName('language');
+
+            convertBtn.addEventListener('click', function() {
+                const number = numberInput.value;
+                const language = document.querySelector('input[name="language"]:checked').value;
+                
+                const result = convertNumberToWordsInNepaliSystem(number, language);
+                resultDiv.textContent = result;
+                resultDiv.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html> 

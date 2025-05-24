@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "target": "ES2018",
+      "moduleResolution": "node",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "lib": ["ES2018", "DOM"],
+      "jsx": "react",
+      "declaration": true,
+      "sourceMap": true,
+      "rootDir": "./src"
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
+  }

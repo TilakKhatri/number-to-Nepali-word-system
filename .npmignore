@@ -1,0 +1,22 @@
+# Source files
+src/
+__tests__/
+*.ts
+*.tsx
+
+# Config files
+tsconfig*.json
+webpack.config.js
+.eslintrc.js
+.prettierrc
+jest.config.js
+
+# Development files
+.git/
+.gitignore
+node_modules/
+coverage/
+*.log
+
+# Only include dist directory
+!dist/ 
