@@ -147,7 +147,7 @@ const handleNumberString = (num, local) => {
                 : convert(whole, zeroTo99),
             afterDecimal: local === 'np'
                 ? convertFirstThreeDigitsToWordsInNepali(decimal, nepaliZeroTo99)
-                : convertFirstThreeDigitsToWords(decimal, zeroTo9),
+                : convertFirstThreeDigitsToWords(decimal, zeroTo99),
         };
     }
     else {
@@ -163,12 +163,8 @@ const handleNumberString = (num, local) => {
 const convertFirstThreeDigitsToWordsInNepali = (numberStr, zeroTo9) => {
     return zeroTo9[parseInt(numberStr.slice(0, 2))] || '';
 };
-const convertFirstThreeDigitsToWords = (numberStr, zeroTo9) => {
-    return numberStr
-        .slice(0, 2)
-        .split('')
-        .map((digit) => zeroTo9[parseInt(digit)])
-        .join(' ');
+const convertFirstThreeDigitsToWords = (numberStr, zeroTo99) => {
+    return zeroTo99[parseInt(numberStr.slice(0, 2).padEnd(2, "0"))] || '';
 };
 const convertToNepali = (x, nepaliZeroTo99) => {
     const place = 'हजार|लाख|करोड|अर्ब|खर्ब|नील|पद्म|शंख'.split('|');
