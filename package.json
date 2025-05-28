@@ -14,7 +14,7 @@
     "dist"
   ],
   "scripts": {
-    "clean": "rm -rf ./dist",
+    "clean": "rimraf ./dist",
     "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:umd",
     "build:esm": "tsc -p ./tsconfig.esm.json",
     "build:cjs": "tsc -p ./tsconfig.cjs.json",

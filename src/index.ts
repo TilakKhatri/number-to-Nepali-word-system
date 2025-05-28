@@ -160,7 +160,7 @@ const handleNumberString = (num: string, local?: 'np' | 'en') => {
       afterDecimal:
         local === 'np'
           ? convertFirstThreeDigitsToWordsInNepali(decimal, nepaliZeroTo99)
-          : convertFirstThreeDigitsToWords(decimal, zeroTo9),
+          : convertFirstThreeDigitsToWords(decimal, zeroTo99),
     };
   } else {
     return {
@@ -183,13 +183,9 @@ const convertFirstThreeDigitsToWordsInNepali = (
 
 const convertFirstThreeDigitsToWords = (
   numberStr: string,
-  zeroTo9: string[]
+  zeroTo99: string[]
 ): string => {
-  return numberStr
-    .slice(0, 2)
-    .split('')
-    .map((digit) => zeroTo9[parseInt(digit)])
-    .join(' ');
+  return zeroTo99[parseInt(numberStr.slice(0, 2).padEnd(2, "0"))] || '';
 };
 
 const convertToNepali = (x: string, nepaliZeroTo99: string[]): string => {
@@ -253,9 +249,9 @@ const convert = (x: string, zeroTo99: string[]): string => {
   countNumLength = x.length;
   let r =
     zeroTo99[
-      x.charCodeAt((countNumLength -= 2)) * 10 +
-        x.charCodeAt(countNumLength + 1) -
-        528
+    x.charCodeAt((countNumLength -= 2)) * 10 +
+    x.charCodeAt(countNumLength + 1) -
+    528
     ];
   if (countNumLength >= 1) {
     const v = zeroTo99[x.charCodeAt((countNumLength -= 1)) - 48];
@@ -264,9 +260,9 @@ const convert = (x: string, zeroTo99: string[]): string => {
   for (let i = 0; countNumLength > 0; i++) {
     const v =
       zeroTo99[
-        x.charCodeAt((countNumLength -= 2)) * 10 +
-          x.charCodeAt(countNumLength + 1) -
-          528
+      x.charCodeAt((countNumLength -= 2)) * 10 +
+      x.charCodeAt(countNumLength + 1) -
+      528
       ];
     if (v) r = v + ' ' + place[i] + (r ? ' ' + r : '');
   }
