@@ -1,14 +1,14 @@
 {
   "name": "nepali-number-system",
   "version": "1.0.2",
-  "description": "Convert numbers to Nepali words representation",
+  "description": "Convert numbers to Nepali words representation, A TypeScript library to convert numbers into Nepali words, supporting both Nepali and English outputs",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "unpkg": "./dist/umd/nepali-number-system.min.js",
   "types": "./dist/cjs/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tilakkhatri/convertNumberToWordsInNepaliSystem.git"
+    "url": "git+https://github.com/TilakKhatri/number-to-Nepali-word-system.git"
   },
   "files": [
     "dist"
@@ -26,6 +26,15 @@
     "test": "jest"
   },
   "keywords": [
+    "Nepali number system",
+    "Nepali number to word",
+    "Devanagari numbers",
+    "number to Nepali words",
+    "number to word converter",
+    "Nepali numeral system",
+    "Nepali language utilities",
+    "JavaScript Nepali number",
+    "TypeScript Nepali words",
     "nepali",
     "number",
     "converter",
@@ -53,6 +62,7 @@
     "prettier": "^3.5.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "rimraf": "^6.0.1",
     "ts-jest": "^29.3.2",
     "ts-loader": "^9.5.2",
     "typescript": "^4.9.5",
