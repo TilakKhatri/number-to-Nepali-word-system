@@ -1,6 +1,6 @@
 {
   "name": "nepali-number-system",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Convert numbers to Nepali words representation, A TypeScript library to convert numbers into Nepali words, supporting both Nepali and English outputs",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
