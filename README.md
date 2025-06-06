@@ -42,7 +42,27 @@ console.log(convertNumberToWordsInNepaliSystem('123.45', 'np'));
 </script>
 ```
 
+### React 
+```typescript
+import { convertNumberToWordsInNepaliSystem } from 'nepali-number-system';
+function MyComponent() {
+  const { convertToWords } = useNepaliNumberConverter();
+  
+  const handleConvert = () => {
+    const result = convertToWords(123, 'np');
+    console.log(result);
+  };
+
+  return (
+    <button onClick={handleConvert}>
+      Convert Number
+    </button>
+  );
+```
+
+OR
 ### React Hook
+
 
 ```typescript
 import { useNepaliNumberConverter } from 'nepali-number-system';
@@ -62,7 +82,10 @@ function MyComponent() {
   );
 }
 ```
-
+## Note 
+```
+We are only taking 2 digits after decimal, It depends on the respective organization rules.
+```
 ## Features
 
 - Convert numbers to Nepali words
